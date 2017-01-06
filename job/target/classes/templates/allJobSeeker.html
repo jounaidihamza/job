@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Find a Job</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Bootstrap -->
+<link href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'/>
+<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+<link href="../static/css/custom.css" th:href="@{css/custom.css}" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../static/shortcodes/shortcodes.css" th:href="@{shortcodes/shortcodes.css}"/>
+
+</head>
+<body>
+<header class="main__header">
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">  
+      <div class="navbar-header">
+        <h1 class="navbar-brand"><a href="index.html">Find a<span>Job</span></a></h1>
+        <a href="#" onClick="javascript.void()" class="submenu">Menus</a> </div>
+      <div class="menuBar">
+        <ul class="menu">
+          <li class="active"><a href="index.html">Homepage</a></li>
+          <li><a href="allJobSeeker.html">All job Seekers</a></li>
+                  </ul>
+      </div>
+   
+    </nav>
+  </div>
+</header>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<section>
+
+<div class="row nothing title__block">
+    <div class="container text-center">
+      <h2 class="page__title">Profile list</h2>
+      <span class="sep"></span>
+     
+    </div>
+  </div>
+  
+<div th:if="${not #lists.isEmpty(jobSeekersList)}" class="container">
+<!-- DC Table Styles II:2 Start -->
+  <table class="dc_tables2_2" summary="Sample Table" style="width:100%;">
+    <thead>
+      <tr>
+        <th scope="col"><center>First Name</center> </th>
+        <th scope="col"><center>Last Name</center></th>
+        <th scope="col"><center>Profile Description</center></th>
+        <th scope="col"><center>Details</center></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="jobseeker : ${jobSeekersList}">
+        <td th:text = "${jobseeker.firstName}"></td>
+        <td th:text = "${jobseeker.lastName}"></td>
+        <td th:text = "${jobseeker.profileDescription}"></td>
+        <td>
+    		<a th:href="@{/jobSeekerInfo/{id}(id=${jobseeker.id})}"><span>See more</span></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<!-- DC Table Styles II:2 End -->
+
+
+</div>
+</section>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+<footer>
+  <div class="container">
+ 
+    <hr/>
+    <p class="text-center">&copy; Hamza JOUNAIDI. All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script type="text/javascript" src="..static/js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="../static/js/bootstrap.min.js"></script> 
+<script type="text/javascript">SyntaxHighlighter.all();</script> 
+<!-- Shortcodes Toggle/SyntaxHighlighter // This can be removed on a live site --> 
+
+
+</body>
+</html>
